@@ -22,6 +22,7 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'apps.home',
+    'apps.users',
     )
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -54,3 +55,5 @@ USE_TZ = True
 # directorio de templates donde guardare todos los html
 
 TEMPLATE_DIRS = [BASE_DIR.child('templates')]
+
+AUTH_USER_MODEL = 'users.User'
