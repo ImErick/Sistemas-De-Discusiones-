@@ -18,6 +18,7 @@ DJANGO_APPS = (
 
 THIRD_PARTY_APPS = (
     'south',
+    'social.apps.django_app.default',
     )
 
 LOCAL_APPS = (
@@ -57,3 +58,17 @@ USE_TZ = True
 TEMPLATE_DIRS = [BASE_DIR.child('templates')]
 
 AUTH_USER_MODEL = 'users.User'
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookAppOAuth2',
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
+    )
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'
+SOCIAL_AUTH_LOGIN_URL = '/error/'
+
+SOCIAL_AUTH_USER_MODEL = 'users.User'
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
